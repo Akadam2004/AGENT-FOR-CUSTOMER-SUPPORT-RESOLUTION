@@ -1,0 +1,5 @@
+# Local secrets (OpenAI and other API keys) — use backend/.env with instructions in that file
+backend/.env
+.venv/
+__pycache__/
+*.pyc
