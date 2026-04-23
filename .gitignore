@@ -1,5 +1,26 @@
-# Local secrets (OpenAI and other API keys) — use backend/.env with instructions in that file
-backend/.env
-.venv/
+# Python
+**/__pycache__/
 __pycache__/
 *.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Environment and local secrets
+.env
+backend/.env
+
+# Local data / models
+memory.db
+**/memory.db
+backend/db/memory.db
+models/
+backend/models/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -15,7 +15,23 @@ class TicketCreateRequest(BaseModel):
     message: str = Field(..., min_length=1, description="User message to process")
 
 
-@router.post("/ticket")
-async def create_ticket(body: TicketCreateRequest) -> dict[str, str]:
+class TicketResponse(BaseModel):
+    user_id: str
+    message: str
+    category: str
+    response: str
+    confidence: float
+    decision: str
+    action: str
+    action_result: str
+    status: str
+    reason: str
+    past_tickets_count: int
+
+
+@router.post("/ticket", response_model=TicketResponse)
+async def create_ticket(body: TicketCreateRequest) -> TicketResponse:
     """Accept a support ticket and run it through the agent orchestrator."""
-    return await process_ticket(user_id=body.user_id, message=body.message)
+    return TicketResponse(
+        **await process_ticket(user_id=body.user_id, message=body.message)
+    )

@@ -11,9 +11,9 @@ from routes.ticket import router as ticket_router
 from tools.llm import LLMGenerationError
 
 app = FastAPI(
-    title="AI Support Agent",
+    title="Agentic AI Customer Support Resolution",
     version="0.1.0",
-    description="Backend API for an AI-powered customer support agent.",
+    description="RAG + classification + decision engine + memory + action simulation.",
     docs_url="/docs",
     redoc_url="/redoc",
 )
